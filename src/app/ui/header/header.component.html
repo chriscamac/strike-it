@@ -3,11 +3,12 @@
     <div class="navbar-expand mr-auto">
         <div class="navbar-nav">
             <a
+                *ngIf="loggedIn"
                 class="nav-item nav-link"
                 href="#"
-                routerLink="/home"
+                routerLink="/lists"
                 routerLinkActive="active"
-                >Home</a
+                >Lists</a
             >
             <a
                 class="nav-item nav-link"
@@ -20,6 +21,20 @@
     </div>
     <div class="navbar-expand ml-auto navbar-nav">
         <div class="navbar-nav">
+            <span *ngIf="!loggedIn" class="nav-item nav-link login-nav-item">
+                <button
+                    class="btn btn-sm btn-outline-primary"
+                    routerLink="/login"
+                >
+                    login or signup
+                </button>
+            </span>
+            <span *ngIf="loggedIn" class="nav-item nav-link login-nav-item">
+                <span class="user-welcome"> hi {{ username }}! </span>
+                <button class="btn btn-sm btn-outline-secondary">
+                    logout <i class="fa fa-sign-out"></i>
+                </button>
+            </span>
             <a class="nav-item nav-link" [href]="repoUrl" target="_blank">
                 <i class="fa fa-github"></i>
             </a>

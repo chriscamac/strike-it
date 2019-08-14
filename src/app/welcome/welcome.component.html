@@ -4,8 +4,11 @@
         <p>
             <em>Let's get things done.</em>
         </p>
-        <button class="btn btn-primary" routerLink="/login">
+        <button *ngIf="!loggedIn" class="btn btn-primary" routerLink="/login">
             login <i class="fa fa-sign-in"></i>
+        </button>
+        <button *ngIf="loggedIn" class="btn btn-primary" routerLink="/lists">
+            get started
         </button>
         <span style="margin-left: 10px"></span>
         <button class="btn btn-secondary" routerLink="/about">

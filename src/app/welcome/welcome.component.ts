@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { LoginService } from '../users/login.service';
 
 @Component({
     selector: 'app-welcome',
@@ -7,8 +8,13 @@ import { environment } from '../../environments/environment';
 })
 export class WelcomeComponent implements OnInit {
     app = environment.app;
+    loggedIn = false;
 
-    constructor() {}
+    constructor(private loginService: LoginService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.loginService.loggedInUser.subscribe(
+            user => (this.loggedIn = user ? true : false)
+        );
+    }
 }
