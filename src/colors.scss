@@ -1,0 +1,12 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+$theme-colors: (
+    primary: #fca311,
+    secondary: #e5e5e5,
+);
+
+/* colors */
+$background: #202020;
+$foreground: white;
+$containerBackground: lighten(#343a40, 10%);
