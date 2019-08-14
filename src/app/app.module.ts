@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent } from './about/about.component';
 import { UiModule } from './ui/ui.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
     declarations: [AppComponent, WelcomeComponent, AboutComponent],
-    imports: [BrowserModule, UiModule, AppRoutingModule],
+    imports: [BrowserModule, UiModule, UsersModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent],
 })
