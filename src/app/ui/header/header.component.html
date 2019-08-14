@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark bg-dark mb-5 fixed-top">
+    <a class="navbar-brand" href="#" routerLink="/home">{{ app.name }}</a>
+    <div class="navbar-expand mr-auto">
+        <div class="navbar-nav">
+            <a
+                class="nav-item nav-link"
+                href="#"
+                routerLink="/home"
+                routerLinkActive="active"
+                >Home</a
+            >
+            <a
+                class="nav-item nav-link"
+                href="#"
+                routerLink="/about"
+                routerLinkActive="active"
+                >About</a
+            >
+        </div>
+    </div>
+    <div class="navbar-expand ml-auto navbar-nav">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" [href]="repoUrl" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+            <a class="nav-item nav-link" [href]="twitter.url" target="_blank">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </div>
+    </div>
+</nav>
