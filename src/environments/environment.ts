@@ -4,10 +4,10 @@
 
 export const environment = {
     app: {
-        name: 'Angular Seed',
+        name: 'Strike It',
     },
     production: false,
-    repoUrl: 'https://github.com/chriscamac/angular-seed',
+    repoUrl: 'https://github.com/chriscamac/strike-it',
     twitter: {
         url: 'https://twitter.com/PilgrimSecret',
         name: 'Chris Camac',
