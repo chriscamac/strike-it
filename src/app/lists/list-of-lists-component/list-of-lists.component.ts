@@ -11,7 +11,7 @@ export class ListOfListsComponent implements OnInit {
     lists: IList[] = [];
     selectedListId = 0;
 
-    constructor(private listsService: ListsService) {}
+    constructor(private listsService: ListsService) { }
 
     ngOnInit(): void {
         this.listsService.lists.subscribe(lists => {
@@ -27,5 +27,9 @@ export class ListOfListsComponent implements OnInit {
             return;
         }
         this.listsService.setSelectedList(list.id);
+    }
+
+    addList(listName: string): void {
+        this.listsService.addList(listName);
     }
 }

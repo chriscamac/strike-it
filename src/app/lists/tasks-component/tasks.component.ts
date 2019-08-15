@@ -21,4 +21,8 @@ export class TasksComponent implements OnInit {
     toggleTaskDone(task: ITask): void {
         this.listsService.toggleTaskDone(task.id);
     }
+
+    addTask(taskName: string): void {
+        this.listsService.addTask(taskName);
+    }
 }

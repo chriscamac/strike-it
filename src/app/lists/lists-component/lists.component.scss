@@ -1,7 +1,7 @@
 @import '../../../colors.scss';
 
 .list-containers {
-    display: inline-block;
+    display: inline-flex;
     background: $background;
     border-color: map-get($theme-colors, 'secondary');
     height: -webkit-fill-available;

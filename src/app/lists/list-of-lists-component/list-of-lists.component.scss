@@ -8,6 +8,10 @@
     cursor: pointer;
 }
 
+.list-group-item:first-child {
+    border: none;
+}
+
 .list-group-item.selected {
     color: map-get($theme-colors, 'primary');
     font-weight: 500;

@@ -1,0 +1,6 @@
+<span class="input-group add-item" [class.highlight]="addText ? true : false">
+    <input #addItemInput type="text" class="form-control" [placeholder]="placeholder" [(ngModel)]="addText" />
+    <button class="input-group-append" (click)="addItem()">
+        <span class="input-group-text"><i class="fa fa-plus"></i></span>
+    </button>
+</span>

@@ -10,6 +10,8 @@ export class LoginService {
     > = new BehaviorSubject(null);
     loggedInUser = this._loggedInUser.asObservable();
 
+    currentLoggedInUserId: number;
+
     constructor() {}
 
     login(loginObject: IUserLoginObject): Observable<boolean> {
@@ -23,6 +25,8 @@ export class LoginService {
             id: 1,
             name: loginObject.name,
         });
+
+        this.currentLoggedInUserId = this._loggedInUser.getValue().id;
         return of(true);
     }
 
@@ -30,6 +34,7 @@ export class LoginService {
         // TODO CCC: implement API
         // spoofing logout
         this._loggedInUser.next(null);
+        this.currentLoggedInUserId = null;
         return of(true);
     }
 }

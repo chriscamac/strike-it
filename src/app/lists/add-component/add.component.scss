@@ -1,0 +1,27 @@
+@import '../../../colors.scss';
+
+.add-item {
+    margin-bottom: 5px;
+}
+
+.add-item .form-control {
+    background-color: transparent;
+    border-color: $containerBackground;
+    border: 1px solid;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.add-item.highlight .form-control {
+    color: map-get($theme-colors, 'secondary');
+}
+
+.add-item .input-group-text {
+    background-color: transparent;
+    border: none;
+}
+
+.add-item.highlight .input-group-text {
+    background-color: $success;
+    color: map-get($theme-colors, 'secondary');
+}
