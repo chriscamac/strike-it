@@ -26,10 +26,10 @@ export class LoginService {
         return of(true);
     }
 
-    logout(loginObject: IUserLoginObject): Observable<void> {
+    logout(): Observable<boolean> {
         // TODO CCC: implement API
         // spoofing logout
         this._loggedInUser.next(null);
-        return of();
+        return of(true);
     }
 }

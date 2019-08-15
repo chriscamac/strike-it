@@ -7,10 +7,17 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent } from './about/about.component';
 import { UiModule } from './ui/ui.module';
 import { UsersModule } from './users/users.module';
+import { ListsModule } from './lists/lists.module';
 
 @NgModule({
     declarations: [AppComponent, WelcomeComponent, AboutComponent],
-    imports: [BrowserModule, UiModule, UsersModule, AppRoutingModule],
+    imports: [
+        BrowserModule,
+        UiModule,
+        UsersModule,
+        ListsModule,
+        AppRoutingModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })

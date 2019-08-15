@@ -1,0 +1,14 @@
+@import '../../../colors.scss';
+
+.list-group-item {
+    background-color: transparent;
+    border-color: map-get($theme-colors, 'secondary');
+    padding: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.list-group-item.selected {
+    color: map-get($theme-colors, 'primary');
+    font-weight: 500;
+}

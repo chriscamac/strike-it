@@ -31,7 +31,10 @@
             </span>
             <span *ngIf="loggedIn" class="nav-item nav-link login-nav-item">
                 <span class="user-welcome"> hi {{ username }}! </span>
-                <button class="btn btn-sm btn-outline-secondary">
+                <button
+                    class="btn btn-sm btn-outline-secondary"
+                    (click)="logout()"
+                >
                     logout <i class="fa fa-sign-out"></i>
                 </button>
             </span>

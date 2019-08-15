@@ -1,0 +1,10 @@
+<ul *ngIf="selectedList" class="list-group list-group-flush">
+    <li
+        class="list-group-item"
+        [class.done]="task.done"
+        *ngFor="let task of selectedList.tasks"
+        (click)="toggleTaskDone(task)"
+    >
+        {{ task.name }}
+    </li>
+</ul>
