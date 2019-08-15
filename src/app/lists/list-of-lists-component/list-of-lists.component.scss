@@ -16,3 +16,16 @@
     color: map-get($theme-colors, 'primary');
     font-weight: 500;
 }
+
+.empty {
+    font-size: 1.2em;
+    font-style: italic;
+    color: gray;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.list-group-item .remove-button {
+    border: none;
+    color: gray;
+}

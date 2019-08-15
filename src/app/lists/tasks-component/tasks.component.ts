@@ -10,6 +10,10 @@ import { IList, ITask } from 'src/app/model/interfaces/lists';
 export class TasksComponent implements OnInit {
     selectedList: IList = null;
 
+    get hasTasks(): boolean {
+        return this.selectedList && this.selectedList.tasks && this.selectedList.tasks.length ? true : false;
+    }
+
     constructor(private listsService: ListsService) {}
 
     ngOnInit(): void {

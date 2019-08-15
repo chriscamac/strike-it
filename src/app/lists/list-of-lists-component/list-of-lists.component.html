@@ -1,6 +1,8 @@
 <app-lists-add placeholder="add list" (added)="addList($event)"></app-lists-add>
 
-<ul class="list-group list-group-flush">
+<div *ngIf="!hasLists" class="empty">no lists found</div>
+
+<ul *ngIf="hasLists" class="list-group list-group-flush">
     <li
         class="list-group-item"
         [class.selected]="list.id === selectedListId"
@@ -8,5 +10,9 @@
         (click)="select(list)"
     >
         {{ list.name }}
+        <span *ngIf="list.tasks.length" class="badge badge-primary badge-pill">{{ list.tasks.length }}</span>
+        <button class="btn btn-sm btn-outline-danger float-right remove-button" (click)="deleteList(list)">
+            <i class="fa fa-times"></i>
+        </button>
     </li>
 </ul>

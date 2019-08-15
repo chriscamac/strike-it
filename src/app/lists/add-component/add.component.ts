@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-lists-add',
@@ -6,20 +7,30 @@ import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, 
     templateUrl: './add.component.html',
 })
 export class ListsAddComponent implements OnInit {
+    @Input() disabled = false;
     @Input() placeholder = 'add item';
     @Output() added = new EventEmitter<string>();
     @ViewChild('addItemInput', null) addItemInput: ElementRef;
 
-    addText = '';
+    addItemForm = new FormGroup({
+        item: new FormControl(''),
+    });
+
+    get hasText(): boolean {
+        return this.addItemForm.value.item ? true : false;
+    }
 
     constructor() {}
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     addItem(): void {
-        this.added.next(this.addText);
-        this.addText = '';
+        const itemName = this.addItemForm.value.item;
+        if (!itemName) {
+            return;
+        }
+        this.added.next(itemName);
+        this.addItemForm.reset();
         this.addItemInput.nativeElement.focus();
     }
 }

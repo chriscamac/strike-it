@@ -16,12 +16,13 @@
     color: map-get($theme-colors, 'secondary');
 }
 
-.add-item .input-group-text {
+.add-item .btn-add-item {
     background-color: transparent;
     border: none;
+    color: $containerBackground;
 }
 
-.add-item.highlight .input-group-text {
+.add-item.highlight .btn-add-item {
     background-color: $success;
     color: map-get($theme-colors, 'secondary');
 }

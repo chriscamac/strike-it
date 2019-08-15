@@ -11,11 +11,16 @@ export class ListOfListsComponent implements OnInit {
     lists: IList[] = [];
     selectedListId = 0;
 
-    constructor(private listsService: ListsService) { }
+    get hasLists(): boolean {
+        return this.lists && this.lists.length ? true : false;
+    }
+
+    constructor(private listsService: ListsService) {}
 
     ngOnInit(): void {
         this.listsService.lists.subscribe(lists => {
-            this.lists = lists;
+            this.lists = lists || [];
+            console.log(this.lists);
         });
         this.listsService.selectedList.subscribe(selectedList => {
             this.selectedListId = (selectedList && selectedList.id) || 0;
@@ -31,5 +36,9 @@ export class ListOfListsComponent implements OnInit {
 
     addList(listName: string): void {
         this.listsService.addList(listName);
+    }
+
+    deleteList(list: IList): void {
+        this.listsService.deleteList(list.id);
     }
 }

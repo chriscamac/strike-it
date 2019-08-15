@@ -1,6 +1,22 @@
-<span class="input-group add-item" [class.highlight]="addText ? true : false">
-    <input #addItemInput type="text" class="form-control" [placeholder]="placeholder" [(ngModel)]="addText" />
-    <button class="input-group-append" (click)="addItem()">
-        <span class="input-group-text"><i class="fa fa-plus"></i></span>
-    </button>
-</span>
+<form [formGroup]="addItemForm" (submit)="addItem()">
+    <span class="input-group add-item" [class.highlight]="hasText ? true : false">
+        <input
+            #addItemInput
+            type="text"
+            class="form-control"
+            [placeholder]="placeholder"
+            formControlName="item"
+            [attr.disabled]="disabled ? 'disabled' : null"
+        />
+        <span class="input-group-append">
+            <button
+                class="btn btn-add-item"
+                type="button"
+                (click)="addItem()"
+                [attr.disabled]="!hasText || disabled ? 'disabled' : null"
+            >
+                <i class="fa fa-plus"></i>
+            </button>
+        </span>
+    </span>
+</form>

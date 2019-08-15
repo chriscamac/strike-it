@@ -13,9 +13,7 @@ export class ListsService {
     private readonly _selectedList: BehaviorSubject<IList> = new BehaviorSubject(null);
     selectedList = this._selectedList.asObservable();
 
-    constructor(
-        private loginService: LoginService,
-    ) {
+    constructor(private loginService: LoginService) {
         const lists = mockLists;
         this._lists.next(lists);
         this._selectedList.next(lists[0]);
@@ -39,7 +37,13 @@ export class ListsService {
 
     addList(listName: string): void {
         const lists = this._lists.getValue();
-        const nextListId = lists && lists.length ? lists.map(list => list.id).sort().reduce((prev, curr) => curr) + 1 : 1;
+        const nextListId =
+            lists && lists.length
+                ? lists
+                      .map(list => list.id)
+                      .sort()
+                      .reduce((prev, curr) => curr) + 1
+                : 1;
         const newList: IList = {
             name: listName,
             id: nextListId,
@@ -55,7 +59,13 @@ export class ListsService {
         const lists = this._lists.getValue();
         const selectedListId = this._selectedList.getValue().id;
         const selectedList = lists.find(list => list.id === selectedListId);
-        const nextTaskId = selectedList && selectedList.tasks && selectedList.tasks.length ? selectedList.tasks.map(task => task.id).sort().reduce((prev, curr) => curr) + 1 : 1;
+        const nextTaskId =
+            selectedList && selectedList.tasks && selectedList.tasks.length
+                ? selectedList.tasks
+                      .map(task => task.id)
+                      .sort()
+                      .reduce((prev, curr) => curr) + 1
+                : 1;
         const newTask: ITask = {
             name: taskName,
             id: nextTaskId,
@@ -66,5 +76,21 @@ export class ListsService {
         selectedList.tasks.unshift(newTask);
         this._lists.next(lists);
         this._selectedList.next(selectedList);
+    }
+
+    deleteList(listId: number): void {
+        let lists = this._lists.getValue();
+        const selectedListId = this._selectedList.getValue().id;
+        if (selectedListId === listId) {
+            // select a different list;
+            const selectedList = lists.find(list => list.id !== listId);
+            this._selectedList.next(selectedList);
+        }
+
+        const indexToRemove = lists.findIndex(list => list.id === listId);
+
+        lists.splice(indexToRemove, 1);
+
+        this._lists.next(lists);
     }
 }

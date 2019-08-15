@@ -12,3 +12,11 @@
     color: map-get($theme-colors, 'primary');
     text-decoration: line-through;
 }
+
+.empty {
+    font-size: 1.2em;
+    font-style: italic;
+    color: gray;
+    padding: 10px;
+    padding-left: 20px;
+}

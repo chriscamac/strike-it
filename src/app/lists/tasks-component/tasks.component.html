@@ -1,6 +1,9 @@
-<app-lists-add placeholder="add task" (added)="addTask($event)"></app-lists-add>
+<app-lists-add [disabled]="!selectedList" placeholder="add task" (added)="addTask($event)"></app-lists-add>
 
-<ul *ngIf="selectedList" class="list-group list-group-flush">
+<div *ngIf="!selectedList" class="empty">no list selected</div>
+<div *ngIf="!hasTasks && selectedList" class="empty">no tasks found</div>
+
+<ul *ngIf="hasTasks" class="list-group list-group-flush">
     <li
         class="list-group-item"
         [class.done]="task.done"
