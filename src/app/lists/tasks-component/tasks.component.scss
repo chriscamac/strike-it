@@ -1,11 +1,22 @@
 @import '../../../colors.scss';
 
+.list-group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 .list-group-item {
     background-color: transparent;
     border: none;
     padding: 5px;
     padding-left: 10px;
     cursor: pointer;
+    width: 33%;
+}
+
+.list-group-item:hover {
+    color: map-get($theme-colors, 'primary');
 }
 
 .list-group-item.done {

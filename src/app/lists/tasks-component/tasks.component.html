@@ -1,4 +1,4 @@
-<app-lists-add [disabled]="!selectedList" placeholder="add task" (added)="addTask($event)"></app-lists-add>
+<app-add [disabled]="!selectedList" placeholder="add task" (added)="addTask($event)"></app-add>
 
 <div *ngIf="!selectedList" class="empty">no list selected</div>
 <div *ngIf="!hasTasks && selectedList" class="empty">no tasks found</div>

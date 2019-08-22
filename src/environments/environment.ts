@@ -12,6 +12,10 @@ export const environment = {
         url: 'https://twitter.com/PilgrimSecret',
         name: 'Chris Camac',
     },
+    colors: {
+        primary: '#fca311',
+        secondary: '#e5e5e5',
+    },
 };
 
 /*

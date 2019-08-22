@@ -9,15 +9,11 @@ import { UiModule } from './ui/ui.module';
 import { UsersModule } from './users/users.module';
 import { ListsModule } from './lists/lists.module';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 @NgModule({
     declarations: [AppComponent, WelcomeComponent, AboutComponent],
-    imports: [
-        BrowserModule,
-        UiModule,
-        UsersModule,
-        ListsModule,
-        AppRoutingModule,
-    ],
+    imports: [BrowserModule, UiModule, UsersModule, ListsModule, AppRoutingModule, SweetAlert2Module],
     providers: [],
     bootstrap: [AppComponent],
 })

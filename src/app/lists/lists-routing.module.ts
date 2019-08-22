@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListsComponent } from './lists-component/lists.component';
+import { ListsUIComponent } from './lists-ui-component/lists-ui.component';
 
 const routes: Routes = [
     {
         path: 'lists',
-        component: ListsComponent,
+        component: ListsUIComponent,
     },
 ];
 

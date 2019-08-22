@@ -1,0 +1,19 @@
+@import '../../../colors.scss';
+
+.list-containers {
+    display: inline-flex;
+    background: $background;
+    border-color: map-get($theme-colors, 'secondary');
+    height: -webkit-fill-available;
+}
+
+.lists {
+    @extend .list-containers;
+    width: 25%;
+    margin-right: 0.5%;
+}
+
+.selected-list {
+    @extend .list-containers;
+    width: 74%;
+}

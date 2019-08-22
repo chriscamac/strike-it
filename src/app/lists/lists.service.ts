@@ -14,7 +14,11 @@ export class ListsService {
     selectedList = this._selectedList.asObservable();
 
     constructor(private loginService: LoginService) {
-        const lists = mockLists;
+        this.init();
+    }
+
+    init(): void {
+        const lists = JSON.parse(JSON.stringify(mockLists));
         this._lists.next(lists);
         this._selectedList.next(lists[0]);
     }
@@ -79,7 +83,7 @@ export class ListsService {
     }
 
     deleteList(listId: number): void {
-        let lists = this._lists.getValue();
+        const lists = this._lists.getValue();
         const selectedListId = this._selectedList.getValue().id;
         if (selectedListId === listId) {
             // select a different list;

@@ -2,11 +2,11 @@ import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, 
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-    selector: 'app-lists-add',
+    selector: 'app-add',
     styleUrls: ['./add.component.scss'],
     templateUrl: './add.component.html',
 })
-export class ListsAddComponent implements OnInit {
+export class AddComponent implements OnInit {
     @Input() disabled = false;
     @Input() placeholder = 'add item';
     @Output() added = new EventEmitter<string>();

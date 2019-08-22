@@ -1,8 +1,18 @@
-<div class="list-component-grid">
-    <div class="list-of-lists card card-body">
-        <app-list-of-lists></app-list-of-lists>
-    </div>
-    <div class="selected-list card card-body">
-        <app-tasks></app-tasks>
-    </div>
-</div>
+<app-add placeholder="add list" (added)="addList($event)"></app-add>
+
+<div *ngIf="!hasLists" class="empty">no lists found</div>
+
+<ul *ngIf="hasLists" class="list-group list-group-flush">
+    <li
+        class="list-group-item"
+        [class.selected]="list.id === selectedListId"
+        *ngFor="let list of lists"
+        (click)="select(list)"
+    >
+        {{ list.name }}
+        <span *ngIf="list.tasks.length" class="badge badge-primary badge-pill">{{ list.tasks.length }}</span>
+        <button class="btn btn-sm btn-outline-danger float-right remove-button" (click)="deleteList(list)">
+            <i class="fa fa-times"></i>
+        </button>
+    </li>
+</ul>
