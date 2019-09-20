@@ -47,6 +47,7 @@ export class ListsComponent implements OnInit {
             showCancelButton: true,
             confirmButtonColor: environment.colors.primary,
             confirmButtonText: 'Yes',
+            type: null,
         };
         Swal.fire(swalConfig).then(confirmResult => {
             if (confirmResult && confirmResult.value === true) {

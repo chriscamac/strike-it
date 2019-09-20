@@ -13,7 +13,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
     declarations: [AppComponent, WelcomeComponent, AboutComponent],
-    imports: [BrowserModule, UiModule, UsersModule, ListsModule, AppRoutingModule, SweetAlert2Module],
+    imports: [BrowserModule, UiModule, UsersModule, ListsModule, AppRoutingModule, SweetAlert2Module.forRoot()],
     providers: [],
     bootstrap: [AppComponent],
 })
